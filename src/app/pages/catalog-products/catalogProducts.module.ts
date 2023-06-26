@@ -10,7 +10,12 @@ import { ListCategoryComponent } from './components/list-category/list-category.
   declarations: [
     SearchComponent,
     ListComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+  ],
+  exports: [
+    SearchComponent,
+    ListComponent,
+    ListCategoryComponent,
   ],
   imports: [
     CommonModule

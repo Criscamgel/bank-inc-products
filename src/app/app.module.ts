@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 //Ngrx
 import { StoreModule } from "@ngrx/store";
@@ -13,6 +14,7 @@ import { CatalogProductsModule } from './pages/catalog-products/catalogProducts.
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { environment } from 'src/environments/environments.prod';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { environment } from 'src/environments/environments.prod';
     CatalogProductsComponent,
     FooterComponent,
     HeaderComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CatalogProductsModule,
     StoreModule.forRoot(appReducers),
