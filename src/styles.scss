@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./scss/mixins";
+@import "./scss/variables";
+@import "./scss/fonts.scss";
+
+/* 
+    @include Asmall() {
+        height: 15vh;
+    }
+    
+    @include smallTablet() {
+        height: 15vh;
+    }
+    
+    @include tabletLaptop() {
+        height: 10vh;
+    }
+
+    @include laptopDesktop() {
+        height: 10vh;
+    }
+    
+    @include desktopFull() {
+        height: 20vh;
+    }
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s;
+  font-family: Montserrat;
+}

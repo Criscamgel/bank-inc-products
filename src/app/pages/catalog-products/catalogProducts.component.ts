@@ -6,15 +6,15 @@ import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
 import { AppState } from "../../app.reducer";
 import * as ui from '../../shared/ui.actions';
-
 @Component({
   selector: 'app-catalog-products',
   templateUrl: './catalogProducts.component.html',
   styleUrls: ['./catalogProducts.component.scss']
 })
-export class CatalogProductsComponent implements OnInit, OnDestroy {
 
-  loading: boolean = false;
+export class CatalogProductsComponent implements OnInit, OnDestroy {
+  
+  loading: boolean;
   uiSubscription: Subscription;
 
   constructor(
@@ -24,7 +24,6 @@ export class CatalogProductsComponent implements OnInit, OnDestroy {
     ){}
 
   ngOnInit(): void {
-    //this.store.dispatch(ui.isLoading());
     this.productsService.getProducts();
     this.uiSubscription = this.store.select('ui').subscribe(ui => this.loading = ui.isLoading)
   }

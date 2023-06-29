@@ -1,1 +1,15 @@
-<p>list works!</p>
+<section class="containerList">
+    <div *ngFor="let product of products" 
+        class="itemProduct">
+        <img [src]="product.images[0]" alt="">
+        <h4>{{ product.title }}</h4>
+        <p>Precio: $ {{ product.price }} c/u</p>
+        <p my-menu class="titleAddProduct">Agregar Al carrito</p>
+        <div class="dropdownAddToCart">
+            <button (click)="addQuantity()">+</button>
+            <input type="number" [value]="addProductCart.quantity" disabled>
+            <button (click)="subtQuantity()">-</button>
+            <button>Agregar</button>
+        </div>
+    </div>
+</section>

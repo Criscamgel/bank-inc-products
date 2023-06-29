@@ -5,7 +5,7 @@ import * as products from './pages/catalog-products/products.reducer';
 
 export interface AppState {
    ui: ui.State,
-   products: products.state 
+   products: products.State 
 }
 
 export const appReducers: ActionReducerMap<AppState> = {

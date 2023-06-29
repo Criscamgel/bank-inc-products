@@ -2,19 +2,19 @@ import { createReducer, on } from '@ngrx/store';
 import { IProduct } from 'src/app/interfaces/products.interfaces';
 import { setProducts} from './products.actions';
 
-export interface state {
+export interface State {
     products: IProduct[] | null;
 }
 
-export const initialState: state = {
+export const initialState: State = {
    products: null,
 }
 
 const _productsReducer = createReducer(initialState,
 
-    on(setProducts, (state, { products }) => ({ ...state, products: products})),
+    on(setProducts, (state, { products }) => ({ ...state, products})),
 
-); 
+);
 
 export function productsReducer(state:any, action:any) {
     return _productsReducer(state, action);

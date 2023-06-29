@@ -1,0 +1,17 @@
+@import "../../../../../scss/mixins";
+@import "../../../../../scss/variables";
+
+.containerList{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .itemProduct{
+        img{
+            width: 15rem;
+        }
+        .titleAddProduct{
+            color: $blueTitle;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
