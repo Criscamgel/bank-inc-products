@@ -17,6 +17,7 @@ export interface IAddProductCart {
 export class ListComponent implements OnInit, OnDestroy {
   
   products: IProduct[] | null;
+  showWidgetCart: boolean = false;
   productsSubscription: Subscription;
   addProductCart: IAddProductCart = {
     id: null,
@@ -36,6 +37,10 @@ export class ListComponent implements OnInit, OnDestroy {
   subtQuantity(){
     this.addProductCart.quantity = this.addProductCart.quantity - 1;
   }
+
+  /* appearWidget(){
+    this.showWidgetCart = !this.showWidgetCart;
+  } */
 
   ngOnInit(): void{
     this.productsSubscription = this.store.select('products').subscribe(products => this.products = products.products);

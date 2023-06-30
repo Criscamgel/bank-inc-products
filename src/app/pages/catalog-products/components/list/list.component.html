@@ -4,12 +4,12 @@
         <img [src]="product.images[0]" alt="">
         <h4>{{ product.title }}</h4>
         <p>Precio: $ {{ product.price }} c/u</p>
-        <p my-menu class="titleAddProduct">Agregar Al carrito</p>
-        <div class="dropdownAddToCart">
+        <p my-menu class="titleAddProduct">Comprar</p>
+        <!-- <div class="dropdownAddToCart" *ngIf="showWidgetCart">
             <button (click)="addQuantity()">+</button>
             <input type="number" [value]="addProductCart.quantity" disabled>
-            <button (click)="subtQuantity()">-</button>
+            <button (click)="subtQuantity()" [disabled]="addProductCart.quantity == 0">-</button>
             <button>Agregar</button>
-        </div>
+        </div> -->
     </div>
 </section>
