@@ -38,9 +38,9 @@ export class ListComponent implements OnInit, OnDestroy {
     this.addProductCart.quantity = this.addProductCart.quantity - 1;
   }
 
-  /* appearWidget(){
+  appearWidget(){
     this.showWidgetCart = !this.showWidgetCart;
-  } */
+  }
 
   ngOnInit(): void{
     this.productsSubscription = this.store.select('products').subscribe(products => this.products = products.products);

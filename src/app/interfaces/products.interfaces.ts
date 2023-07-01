@@ -2,7 +2,8 @@ export interface IProduct {
     id:          number;
     title:       string;
     price:       number;
-    quantity?:   number;   
+    quantity?:   number;
+    viewWidget?: boolean;   
     description: string;
     images:      string[];
     creationAt:  Date;

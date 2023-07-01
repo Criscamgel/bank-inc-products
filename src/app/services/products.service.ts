@@ -22,6 +22,10 @@ export class ProductsService {
     this.store.dispatch(ui.isLoading());
     this.http.get<IProduct[]>(`${baseServiceUrl}api/v1/products`/* , { params } */)
     .subscribe((resp) => {
+      for(const element of resp) { 
+        element.quantity = 0;
+        element.viewWidget = false; 
+      }
       this.store.dispatch(productsActions.setProducts({products:resp}));
       setTimeout(() => {
         this.store.dispatch(ui.stopLoading());

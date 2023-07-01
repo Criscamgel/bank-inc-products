@@ -1,12 +1,15 @@
 @import "../../../../../scss/mixins";
 @import "../../../../../scss/variables";
 
+$link-text-color: #fff;
+
 .containerList{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .itemProduct{
         img{
             width: 15rem;
+            height: 15rem;
         }
         .titleAddProduct{
             color: $blueTitle;
@@ -15,3 +18,47 @@
         }
     }
 }
+
+.effect {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: $link-text-color;
+    text-transform: capitalize;
+    background-color: $background-color-button;
+    padding: 20px 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+.effect-transition {
+    transition: all 0.2s linear 0s;
+    
+    &:before {
+      content: "\f054";
+      font-family: FontAwesome;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0px;
+      height: 100%;
+      width: 30px;
+      background-color: rgba($overlay-color,0.3);
+      border-radius: 0 50% 50% 0;
+      transform: scale(0,1);
+      transform-origin: left center;
+      transition: all 0.2s linear 0s;
+    }
+    
+     &:hover {
+      text-indent: 30px;
+      
+      &:before {
+        transform: scale(1,1);
+        text-indent: 0;
+      }
+    }
+  }

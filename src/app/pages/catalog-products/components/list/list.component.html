@@ -1,15 +1,19 @@
+
+
 <section class="containerList">
     <div *ngFor="let product of products" 
         class="itemProduct">
         <img [src]="product.images[0]" alt="">
         <h4>{{ product.title }}</h4>
         <p>Precio: $ {{ product.price }} c/u</p>
-        <p my-menu class="titleAddProduct">Comprar</p>
-        <!-- <div class="dropdownAddToCart" *ngIf="showWidgetCart">
+            <div>
+                <p my-menu class="effect effect-transition" (click)="appearWidget()">Comprar</p>
+            </div>
+        <div class="dropdownAddToCart" (mouseout)="appearWidget()"*ngIf="showWidgetCart">
             <button (click)="addQuantity()">+</button>
-            <input type="number" [value]="addProductCart.quantity" disabled>
+            <input type="number" [value]="product.quantity" disabled>
             <button (click)="subtQuantity()" [disabled]="addProductCart.quantity == 0">-</button>
             <button>Agregar</button>
-        </div> -->
+        </div>
     </div>
 </section>
