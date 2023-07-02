@@ -7,13 +7,18 @@
         <h4>{{ product.title }}</h4>
         <p>Precio: $ {{ product.price }} c/u</p>
             <div>
-                <p my-menu class="effect effect-transition" (click)="appearWidget()">Comprar</p>
+                <p class="superButton effect-transition pointer" (click)="showWidgetCart = true">Comprar</p>
             </div>
-        <div class="dropdownAddToCart" (mouseout)="appearWidget()"*ngIf="showWidgetCart">
-            <button (click)="addQuantity()">+</button>
-            <input type="number" [value]="product.quantity" disabled>
-            <button (click)="subtQuantity()" [disabled]="addProductCart.quantity == 0">-</button>
-            <button>Agregar</button>
+        <div class="dropdownAddToCart" *ngIf="showWidgetCart">
+            <div class="controlsAddWidgetProduct">
+                <button class="cleared pointer" (click)="addQuantity()">+</button>
+                <p>{{ product.quantity }}</p>
+                <button class="danger pointer" (click)="subtQuantity()" [disabled]="addProductCart.quantity == 0">-</button>
+            </div>
+            <div class="buttonAdd">
+                <button class="buttonBuy pointer mb-2">Agregar al carrito</button>
+                <button class="buttonCancel pointer" (click)="showWidgetCart = false">Cancelar</button>
+            </div>
         </div>
     </div>
 </section>

@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { environment } from 'src/environments/environments.prod';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -40,6 +40,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   appearWidget(){
     this.showWidgetCart = !this.showWidgetCart;
+    /* this.showWidgetCart = true; */
   }
 
   ngOnInit(): void{

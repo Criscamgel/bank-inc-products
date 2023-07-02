@@ -1,34 +1,106 @@
 @import "../../../../../scss/mixins";
 @import "../../../../../scss/variables";
 
-$link-text-color: #fff;
+button {
+  border: none;
+  outline:none;
+}
 
 .containerList{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .itemProduct{
-        img{
-            width: 15rem;
-            height: 15rem;
-        }
-        .titleAddProduct{
-            color: $blueTitle;
-            font-weight: 500;
+      img{
+        width: 15rem;
+        height: 15rem;
+      }
+      .dropdownAddToCart {
+        position: absolute;
+        background-color: #ffffffb0;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        width: 15rem;
+        padding: 1rem;
+        margin-top: -5px;
+        .controlsAddWidgetProduct{
+          display: grid;
+          grid-template-columns: 10% 80% 10%;
+          align-items: center;
+          justify-self: center;
+          width: 12rem;
+          p{
             text-align: center;
+          }
+          .danger{
+            background-color: $red;
+            color: #fff;
+            border-radius: 3px;
+            outline: none;
+            &:disabled{
+              background-color: rgb(190, 190, 190);
+            }
+          }
+          .cleared{
+            background-color: $green;
+            color: #fff;
+            border-radius: 3px;
+            outline: none;
+          }
         }
+        .buttonAdd{
+          display: grid;
+          justify-items: center;
+        }
+      }
     }
 }
 
-.effect {
+.pointer{
+  cursor: pointer;
+}
+
+.buttonBuy {
+  border: 2px solid $green;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: $green;
+  padding: 10px 0px;
+  width: 12rem;
+  &:hover{
+    background-color: #fff;
+    color: $green;
+  }
+}
+
+.buttonCancel {
+  border: 2px solid $red;
+  border-radius: 6px;
+  text-decoration: none;
+  color: $red;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: #fff;
+  padding: 10px 0px;
+  width: 12rem;
+  &:hover{
+    background-color: $red;
+    color: #fff;
+  }
+}
+
+.superButton {
     text-align: center;
     display: inline-block;
     position: relative;
     text-decoration: none;
-    color: $link-text-color;
+    color: #fff;
     text-transform: capitalize;
-    background-color: $background-color-button;
+    background-color: $blue;
     padding: 20px 0px;
-    width: 100%;
+    width: 15rem;
     overflow: hidden;
   }
 
@@ -36,7 +108,7 @@ $link-text-color: #fff;
     transition: all 0.2s linear 0s;
     
     &:before {
-      content: "\f054";
+      content: "\f175";
       font-family: FontAwesome;
       display: flex;
       align-items: center;
