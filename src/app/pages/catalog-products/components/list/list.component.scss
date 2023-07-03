@@ -13,6 +13,11 @@ button {
       img{
         width: 15rem;
         height: 15rem;
+        border-radius: 6px;
+      }
+      .containerDescription {
+        width: 15rem;
+        text-align: center;
       }
       .dropdownAddToCart {
         position: absolute;
@@ -21,7 +26,7 @@ button {
         grid-template-rows: repeat(2, 1fr);
         width: 15rem;
         padding: 1rem;
-        margin-top: -5px;
+        margin-top: -20px;
         .controlsAddWidgetProduct{
           display: grid;
           grid-template-columns: 10% 80% 10%;
@@ -37,7 +42,8 @@ button {
             border-radius: 3px;
             outline: none;
             &:disabled{
-              background-color: rgb(190, 190, 190);
+              background-color: $red-disabled;
+              cursor: not-allowed;
             }
           }
           .cleared{
@@ -102,6 +108,7 @@ button {
     padding: 20px 0px;
     width: 15rem;
     overflow: hidden;
+    margin-bottom: 1rem;
   }
 
 .effect-transition {

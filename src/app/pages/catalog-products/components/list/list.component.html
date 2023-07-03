@@ -4,20 +4,22 @@
     <div *ngFor="let product of products" 
         class="itemProduct">
         <img [src]="product.images[0]" alt="">
-        <h4>{{ product.title }}</h4>
-        <p>Precio: $ {{ product.price }} c/u</p>
+        <div class="containerDescription">
+            <h4>{{ product.title }}</h4>
+            <p>Precio: $ {{ product.price }} c/u</p>
+        </div>
             <div>
-                <p class="superButton effect-transition pointer" (click)="showWidgetCart = true">Comprar</p>
+                <p class="superButton effect-transition pointer" (click)="appearProductWidget(product, true)">Comprar</p>
             </div>
-        <div class="dropdownAddToCart" *ngIf="showWidgetCart">
+        <div class="dropdownAddToCart" *ngIf="product.viewWidget">
             <div class="controlsAddWidgetProduct">
-                <button class="cleared pointer" (click)="addQuantity()">+</button>
+                <button class="cleared pointer" (click)="modifyProductQuantity(product, 'sum')">+</button>
                 <p>{{ product.quantity }}</p>
-                <button class="danger pointer" (click)="subtQuantity()" [disabled]="addProductCart.quantity == 0">-</button>
+                <button class="danger pointer" (click)="modifyProductQuantity(product, 'sub')" [disabled]="product.quantity == 0">-</button>
             </div>
             <div class="buttonAdd">
                 <button class="buttonBuy pointer mb-2">Agregar al carrito</button>
-                <button class="buttonCancel pointer" (click)="showWidgetCart = false">Cancelar</button>
+                <button class="buttonCancel pointer" (click)="appearProductWidget(product, false)">Cancelar</button>
             </div>
         </div>
     </div>

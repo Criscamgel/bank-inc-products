@@ -3,11 +3,13 @@ import { IProduct } from 'src/app/interfaces/products.interfaces';
 import { setProducts} from './products.actions';
 
 export interface State {
-    products: IProduct[] | null;
+    products: IProduct[] | null | any;
+    product: IProduct | null | any;
 }
 
 export const initialState: State = {
    products: null,
+   product: null
 }
 
 const _productsReducer = createReducer(initialState,
