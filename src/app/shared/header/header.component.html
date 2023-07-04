@@ -3,5 +3,10 @@
 </div>
 
 <div class="containerMenu">
-    
+    <i class="fa fa-times" id="crossClosed" aria-hidden="true"></i>
+    <div class="contCategories">
+        <ul>
+            <li *ngFor="let category of categories" (click)="filterByCategory(category.id)">{{ category.name }}</li>
+        </ul>
+    </div>
 </div>

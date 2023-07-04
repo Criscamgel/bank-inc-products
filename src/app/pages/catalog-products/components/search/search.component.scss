@@ -1,1 +1,14 @@
 @import "../../../../../scss/variables";
+
+.containerSearch {
+    display: grid;
+    grid-template-columns: 1rem 20rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    input{
+        height: 2rem;
+        border-radius: 5px;
+    }
+}

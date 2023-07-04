@@ -6,6 +6,7 @@ import { AppState } from '../app.reducer';
 import * as productsActions from '../pages/catalog-products/products.actions';
 import { baseServiceUrl } from '../apis/baseApi';
 import * as ui from '../shared/ui.actions';
+import { ICategory } from '../interfaces/categories.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,25 @@ export class ProductsService {
         this.store.dispatch(ui.stopLoading());
       }, 500);
     });
+  }
+
+ async getProductsByCategory(category:number):Promise<void> {
+  this.store.dispatch(ui.isLoading());
+  this.http.get<IProduct[]>(`${baseServiceUrl}api/v1/products?categoryId=${category}`)
+  .subscribe((resp) => {
+    this.store.dispatch(productsActions.setProducts({products:resp}));
+      setTimeout(() => {
+        this.store.dispatch(ui.stopLoading());
+      }, 500);
+  })
+ }
+
+  async getCategories():Promise<void>{
+    this.http.get<ICategory[]>(`${baseServiceUrl}api/v1/categories`)
+    .subscribe((resp) => {
+      this.store.dispatch(productsActions.setCategories({categories:resp}))
+    });
+
   }
   
 }

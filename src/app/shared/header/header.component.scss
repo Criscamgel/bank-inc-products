@@ -21,10 +21,31 @@
     padding: 0;
     z-index: 99;
     transition: all 0.5s ease;
-    
+    display: none;
      
 }
 
 .containerMenu.open {
+    display: grid;
+    grid-template-rows: 1rem auto;
     width: 12rem;
+    padding: 1rem;
+    i{
+        justify-self: end;
+        color: $overlay-color;
+        cursor: pointer;
+    }
+    .contCategories{
+        li{
+            padding: 0.5rem;
+            color: $overlay-color;
+            cursor: pointer;
+            list-style-type: none;
+            text-align: center;
+            &:hover{
+                background-color: $overlay-color;
+                color: $blue;
+            }
+        }
+    }
 }
