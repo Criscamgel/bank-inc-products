@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './components/search/search.component';
 import { ListComponent } from './components/list/list.component';
 import { ListCategoryComponent } from './components/list-category/list-category.component';
-
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { ListCategoryComponent } from './components/list-category/list-category.
     ListCategoryComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot()
   ]
 })
 export class CatalogProductsModule { }

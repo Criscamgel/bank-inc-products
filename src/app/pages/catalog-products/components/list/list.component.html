@@ -18,9 +18,10 @@
                 <button class="danger pointer" (click)="modifyProductQuantity(product, 'sub')" [disabled]="product.quantity == 0">-</button>
             </div>
             <div class="buttonAdd">
-                <button class="buttonBuy pointer mb-2">Agregar al carrito</button>
+                <button class="buttonBuy pointer mb-2" [disabled]="product.quantity == 0" (click)="showSuccess('Producto agregado al carrito correctamente', '')">Agregar al carrito</button>
                 <button class="buttonCancel pointer" (click)="appearProductWidget(product, false)">Cancelar</button>
             </div>
         </div>
     </div>
 </section>
+

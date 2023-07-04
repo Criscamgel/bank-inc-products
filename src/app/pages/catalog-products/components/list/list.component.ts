@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { IProduct } from '../../../../interfaces/products.interfaces';
 import * as productsActions from '../../../../pages/catalog-products/products.actions';
+
+import { ToastrService } from 'ngx-toastr';
 export interface IAddProductCart {
   id: number | null;
   name: string | null,
@@ -29,8 +31,13 @@ export class ListComponent implements OnInit, OnDestroy {
   };
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private toastr: ToastrService
   ){}
+
+  showSuccess(message: string, title: string) {
+    this.toastr.success(message, title);
+  }
 
   appearProductWidget(product:IProduct, bool: boolean){
     this.productLocal = {...product};
@@ -58,8 +65,8 @@ export class ListComponent implements OnInit, OnDestroy {
     this.store.dispatch(productsActions.setProducts({products:this.products}));
   }
 
-  ngOnInit(): void{
-    this.productsSubscription = this.store.select('products').subscribe(products => this.products = [...products.products]);
+  async ngOnInit(){
+    this.productsSubscription = this.store.select('products').subscribe(products => this.products = [...products?.products]);
   }
 
   ngOnDestroy():void{

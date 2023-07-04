@@ -4,12 +4,10 @@ import { setProducts} from './products.actions';
 
 export interface State {
     products: IProduct[] | null | any;
-    product: IProduct | null | any;
 }
 
 export const initialState: State = {
-   products: null,
-   product: null
+   products: null
 }
 
 const _productsReducer = createReducer(initialState,

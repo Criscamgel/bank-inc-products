@@ -2,6 +2,8 @@
 @import "./scss/variables";
 @import "./scss/fonts.scss";
 @import "./scss/margin";
+$fa-font-path: "~font-awesome/fonts";
+@import '../node_modules/font-awesome/scss/font-awesome';
 
 /* 
     @include Asmall() {
@@ -31,4 +33,9 @@
   padding: 0;
   transition: all 0.5s;
   font-family: Montserrat;
+}
+
+app-list{
+    height: 100vh;
+    display: block;
 }

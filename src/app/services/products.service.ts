@@ -14,13 +14,11 @@ export class ProductsService {
 
   constructor(private http: HttpClient, private store: Store<AppState>) { }
 
- async getProducts():Promise<void> {
+ async getProducts(filter?:string):Promise<void> {
 
-    /* const params = new HttpParams()
-    .set('name_param', value) */
-
+    let urlGetProducts = filter ? `${baseServiceUrl}api/v1/products?title=${filter}` : `${baseServiceUrl}api/v1/products`; 
     this.store.dispatch(ui.isLoading());
-    this.http.get<IProduct[]>(`${baseServiceUrl}api/v1/products`/* , { params } */)
+    this.http.get<IProduct[]>(urlGetProducts)
     .subscribe((resp) => {
       for(const element of resp) { 
         element.quantity = 0;
@@ -29,7 +27,8 @@ export class ProductsService {
       this.store.dispatch(productsActions.setProducts({products:resp}));
       setTimeout(() => {
         this.store.dispatch(ui.stopLoading());
-      }, 1000);
+      }, 500);
     });
- }
+  }
+  
 }

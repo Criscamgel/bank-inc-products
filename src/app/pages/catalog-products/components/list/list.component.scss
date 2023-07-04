@@ -9,7 +9,9 @@ button {
 .containerList{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
     .itemProduct{
+      justify-self: center;
       img{
         width: 15rem;
         height: 15rem;
@@ -18,10 +20,13 @@ button {
       .containerDescription {
         width: 15rem;
         text-align: center;
+        height: 4rem;
       }
       .dropdownAddToCart {
         position: absolute;
-        background-color: #ffffffb0;
+        background-color: $gray-black;
+        color: $overlay-color;
+        font-weight: 500;
         display: grid;
         grid-template-rows: repeat(2, 1fr);
         width: 15rem;
@@ -38,7 +43,7 @@ button {
           }
           .danger{
             background-color: $red;
-            color: #fff;
+            color: $overlay-color;
             border-radius: 3px;
             outline: none;
             &:disabled{
@@ -48,7 +53,7 @@ button {
           }
           .cleared{
             background-color: $green;
-            color: #fff;
+            color: $overlay-color;
             border-radius: 3px;
             outline: none;
           }
@@ -69,15 +74,21 @@ button {
   border: 2px solid $green;
   border-radius: 6px;
   text-decoration: none;
-  color: #fff;
+  color: $overlay-color;
   font-weight: 500;
   text-transform: capitalize;
   background-color: $green;
   padding: 10px 0px;
   width: 12rem;
   &:hover{
-    background-color: #fff;
+    background-color: $overlay-color;
     color: $green;
+  }
+  &:disabled{
+    background-color: $gray-white;
+    color: #000;
+    cursor: not-allowed;
+    border: none;
   }
 }
 
@@ -88,12 +99,12 @@ button {
   color: $red;
   font-weight: 500;
   text-transform: capitalize;
-  background-color: #fff;
+  background-color: $overlay-color;
   padding: 10px 0px;
   width: 12rem;
   &:hover{
     background-color: $red;
-    color: #fff;
+    color: $overlay-color;
   }
 }
 
@@ -102,7 +113,7 @@ button {
     display: inline-block;
     position: relative;
     text-decoration: none;
-    color: #fff;
+    color: $overlay-color;
     text-transform: capitalize;
     background-color: $blue;
     padding: 20px 0px;

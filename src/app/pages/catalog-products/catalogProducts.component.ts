@@ -5,7 +5,6 @@ import { Store } from "@ngrx/store";
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
 import { AppState } from "../../app.reducer";
-import * as ui from '../../shared/ui.actions';
 @Component({
   selector: 'app-catalog-products',
   templateUrl: './catalogProducts.component.html',
@@ -13,14 +12,14 @@ import * as ui from '../../shared/ui.actions';
 })
 
 export class CatalogProductsComponent implements OnInit, OnDestroy {
-  
+
   loading: boolean;
   uiSubscription: Subscription;
 
   constructor(
     private router: Router, 
     private store: Store<AppState>,
-    private productsService: ProductsService
+    private productsService: ProductsService,
     ){}
 
   ngOnInit(): void {
