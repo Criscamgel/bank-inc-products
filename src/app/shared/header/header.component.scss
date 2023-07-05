@@ -6,10 +6,32 @@
     background-color: $blue;
     color: $overlay-color;
     padding: 1rem;
+    grid-template-columns: 10% 80% 5%;
+    justify-content: space-between;
     i{
         cursor: pointer;
     }
+    .containerCartIcon{
+        text-align: right;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
+
+/* Badge */
+.badge {
+    align-items: center;
+    height: 1rem;
+    border: 3px solid #f4fdff;
+    border-radius: 500px;
+    font-size: 8px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    transition: transform 0.15s, background-color 0.5s;
+    background: #ff3c35;
+  }
 
 .containerMenu{
     position: fixed;
