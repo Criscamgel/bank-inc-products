@@ -68,6 +68,7 @@ button {
         width: 15rem;
         padding: 1rem;
         margin-top: -20px;
+        z-index: 1;
         .controlsAddWidgetProduct{
           display: grid;
           grid-template-columns: 10% 80% 10%;
