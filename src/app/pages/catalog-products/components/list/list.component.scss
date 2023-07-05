@@ -12,12 +12,47 @@ button {
     height: 100vh;
     .itemProduct{
       justify-self: center;
+      position: relative;
+      &:hover{
+        .tooltip{
+          display: flex;
+        }
+      }
       img{
         width: 15rem;
         height: 15rem;
         border-radius: 6px;
         cursor: pointer;
       }
+      .tooltip{
+          background: black;
+          padding: 5px 10px;
+          border-radius: 5px;
+          color: #fff;
+          text-transform: capitalize;    
+          position: absolute;
+          z-index: 1030;
+          font-size: 12px;
+          line-height: 1.4;
+          visibility: visible;
+          filter: alpha(opacity=0);
+          display: none;
+          white-space: pre-line;
+          word-break: break-all;
+          top: calc(63% - 25px);
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: -5px;
+          right: 50%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent #000 transparent transparent;
+          transform: rotate(90deg) translateY(-50%);
+          }
+        }
       .containerDescription {
         width: 15rem;
         text-align: center;
@@ -153,3 +188,6 @@ button {
       }
     }
   }
+/* {
+  display: flex !important;
+} */

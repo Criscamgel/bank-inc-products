@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { IProduct } from '../../../../interfaces/products.interfaces';
 import * as productsActions from '../../../../pages/catalog-products/products.actions';
+import * as cartActions from '../../../../pages/catalog-products/components/cart/cart.actions';
 
 import { ToastrService } from 'ngx-toastr';
 export interface IAddProductCart {
@@ -65,7 +66,15 @@ export class ListComponent implements OnInit, OnDestroy {
     this.store.dispatch(productsActions.setProducts({products:this.products}));
   }
 
-  async ngOnInit(){
+  addToCartProduct(product:IProduct){
+    let cartProducts = [];
+    let { id, title, price, quantity } = product;
+    cartProducts.push({id, title, price, quantity});
+    this.store.dispatch(cartActions.setCartProducts({cartProducts:cartProducts}));
+    this.showSuccess('Producto agregado al carrito correctamente', '');
+  }
+
+  ngOnInit(){
     this.productsSubscription = this.store.select('products').subscribe(products => this.products = [...products?.products]);
   }
 
