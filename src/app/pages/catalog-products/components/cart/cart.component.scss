@@ -1,0 +1,64 @@
+@import "../../../../../scss/mixins";
+@import "../../../../../scss/variables";
+
+button {
+    border: none;
+    outline:none;
+  }
+
+.gridContainerCart{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+.superContainerCart{
+    position: absolute;
+    right: 0;
+    border: 2px solid;
+.containerCart{
+    position: relative;
+    background-color: #fff;
+    height: 15rem;
+    z-index: 2;
+    overflow: auto;
+.elementCart{
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    width: 24rem;
+    padding: 1rem;
+    align-items: center;
+    border-bottom: 1px solid $gray-white;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    img{
+        width: 5rem;
+        align-self: center;
+        justify-self: center;
+    }
+    .containerButtons{
+        .buttonbuy {
+            border: 2px solid $red;
+            border-radius: 6px;
+            text-decoration: none;
+            color: $overlay-color;
+            font-weight: 500;
+            text-transform: capitalize;
+            background-color: $green;
+            padding: 10px 0px;
+            width: 6rem;
+            &:hover{
+            background-color: $overlay-color;
+            color: $green;
+            }
+            &:disabled{
+            background-color: $gray-white;
+            color: #000;
+            cursor: not-allowed;
+            border: solid 1px #000;
+            }
+        }
+    }
+}
+}
+}
+}

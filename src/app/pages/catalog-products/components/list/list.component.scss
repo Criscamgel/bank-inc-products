@@ -9,7 +9,6 @@ button {
 .containerList{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 100vh;
     .itemProduct{
       justify-self: center;
       position: relative;

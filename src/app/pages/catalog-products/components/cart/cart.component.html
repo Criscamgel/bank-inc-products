@@ -1,5 +1,22 @@
-<div class="containerCart">
-    <ul>
-        <li>Element</li>
-    </ul>
+
+<div class="gridContainerCart">
+    <div class="superContainerCart">
+        <div class="containerCart">
+                <div class="elementCart" *ngFor="let cartProduct of cartProducts">
+                    <div class="description">
+                        <p><b>Nombre: </b>{{ cartProduct.title }}</p>
+                        <p><b>Precio: </b>${{ cartProduct.price }} c/u</p>
+                        <p><b>Cantidad: </b>{{ cartProduct.quantity }}</p>
+                    </div>
+                    <img [src]="cartProduct.images[0]" alt="">
+                    <div class="containerButtons">
+                        <button class="buttonbuy"> Eliminar del carrito </button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="containerEventButtons">
+        <button class="buttonbuy"> Eliminar del carrito </button>
+        <button class="buttonbuy"> Eliminar del carrito </button>
+    </div>
 </div>

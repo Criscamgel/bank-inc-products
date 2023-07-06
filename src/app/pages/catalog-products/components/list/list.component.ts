@@ -7,6 +7,7 @@ import * as productsActions from '../../../../pages/catalog-products/products.ac
 import * as cartActions from '../../../../pages/catalog-products/components/cart/cart.actions';
 
 import { ToastrService } from 'ngx-toastr';
+import { ICartProduct } from 'src/app/interfaces/cart.interfaces';
 export interface IAddProductCart {
   id: number | null;
   name: string | null,
@@ -20,6 +21,7 @@ export interface IAddProductCart {
 })
 export class ListComponent implements OnInit, OnDestroy {
   
+  cartProducts: ICartProduct[] = [];
   products: IProduct[];
   productLocal: IProduct;
   showWidgetCart: boolean = false;
@@ -37,7 +39,7 @@ export class ListComponent implements OnInit, OnDestroy {
   ){}
 
   showSuccess(message: string, title: string) {
-    this.toastr.success(message, title);
+    this.toastr.success(message, title, {timeOut: 1000});
   }
 
   appearProductWidget(product:IProduct, bool: boolean){
@@ -67,10 +69,10 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   addToCartProduct(product:IProduct){
-    let cartProducts = [];
-    let { id, title, price, quantity } = product;
-    cartProducts.push({id, title, price, quantity});
-    this.store.dispatch(cartActions.setCartProducts({cartProducts:cartProducts}));
+    let { id, title, price, quantity, images } = product;
+    let localCartProduct = {id, title, price, quantity, images};
+    this.cartProducts = [...this.cartProducts, localCartProduct];
+    this.store.dispatch(cartActions.setCartProducts({cartProducts:this.cartProducts}));
     this.showSuccess('Producto agregado al carrito correctamente', '');
   }
 

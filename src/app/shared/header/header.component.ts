@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
+import { ICartProduct } from 'src/app/interfaces/cart.interfaces';
 import { ICategory } from 'src/app/interfaces/categories.interfaces';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -13,6 +14,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  cartSubscription: Subscription;
+  cartProducts: ICartProduct[];
   categoriesSubscription: Subscription;
   categories: ICategory[];
 
@@ -24,8 +27,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.categoriesService.getCategories();
     this.categoriesSubscription = this.store.select('products').subscribe(categories => this.categories = [...categories?.categories]);
+    this.cartSubscription = this.store.select('cart').subscribe(cartProducts => this.cartProducts = [...cartProducts.cartProducts]);
+    this.categoriesService.getCategories();
 
     let containerMenu = document.querySelector('.containerMenu');
     let btnMenuNav = document.querySelector('#btnMenuNav');
