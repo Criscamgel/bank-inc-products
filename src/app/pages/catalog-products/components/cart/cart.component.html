@@ -1,5 +1,5 @@
 
-<div class="gridContainerCart">
+<div class="gridContainerCart" *ngIf="showCart">
     <div class="superContainerCart">
         <div class="containerCart">
                 <div class="elementCart" *ngFor="let cartProduct of cartProducts">
@@ -10,13 +10,13 @@
                     </div>
                     <img [src]="cartProduct.images[0]" alt="">
                     <div class="containerButtons">
-                        <button class="buttonbuy"> Eliminar del carrito </button>
+                        <button class="buttonEventCart" (click)="eraseCartProduct(cartProduct)"> Eliminar del carrito </button>
                     </div>
                 </div>
         </div>
     </div>
     <div class="containerEventButtons">
-        <button class="buttonbuy"> Eliminar del carrito </button>
-        <button class="buttonbuy"> Eliminar del carrito </button>
+        <button class="buttonEventCart"> Convertir a SCV </button>
+        <button class="buttonEventCart" (click)="hideCart()"> Salir del carrito </button>
     </div>
 </div>

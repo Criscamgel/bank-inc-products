@@ -6,6 +6,7 @@ import { ICartProduct } from 'src/app/interfaces/cart.interfaces';
 import { ICategory } from 'src/app/interfaces/categories.interfaces';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { ProductsService } from 'src/app/services/products.service';
+import * as ui from '../ui.actions';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartProducts: ICartProduct[];
   categoriesSubscription: Subscription;
   categories: ICategory[];
+  showCartSubscription: Subscription;
+  showCart: boolean;
 
   constructor(
       private store: Store<AppState>,
@@ -47,6 +50,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   filterByCategory(id:number){
     this.productsService.getProductsByCategory(id);
+  }
+
+  isShowCart(){
+    this.store.dispatch(ui.openCart());
   }
 
   ngOnDestroy(): void {

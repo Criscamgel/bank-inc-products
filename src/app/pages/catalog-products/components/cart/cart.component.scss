@@ -12,13 +12,15 @@ button {
 .superContainerCart{
     position: absolute;
     right: 0;
-    border: 2px solid;
+    height: 15rem;
+    width: 26rem;
 .containerCart{
     position: relative;
-    background-color: #fff;
+    background-color: $overlay-color;
     height: 15rem;
     z-index: 2;
     overflow: auto;
+    box-shadow: 4px 8px 20px #000;
 .elementCart{
     position: relative;
     display: grid;
@@ -35,30 +37,49 @@ button {
         align-self: center;
         justify-self: center;
     }
-    .containerButtons{
-        .buttonbuy {
-            border: 2px solid $red;
-            border-radius: 6px;
-            text-decoration: none;
-            color: $overlay-color;
-            font-weight: 500;
-            text-transform: capitalize;
-            background-color: $green;
-            padding: 10px 0px;
-            width: 6rem;
-            &:hover{
-            background-color: $overlay-color;
-            color: $green;
-            }
-            &:disabled{
-            background-color: $gray-white;
-            color: #000;
-            cursor: not-allowed;
-            border: solid 1px #000;
+}
+}
+}
+.containerEventButtons{
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    top: 18rem;
+    background-color: #fff;
+    width: 24rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+        button{
+            &:nth-child(1){
+                background-color: $blue;
+                border: 1px solid $blue;
+                &:hover{
+                    background-color: $overlay-color;
+                    color: $blue;
+                }
             }
         }
+}
+}
+
+.buttonEventCart {
+        border: 2px solid $red;
+        text-decoration: none;
+        color: $overlay-color;
+        font-weight: 500;
+        text-transform: capitalize;
+        background-color: $red;
+        padding: 10px 0px;
+        width: 100%;
+        cursor: pointer;
+    &:hover{
+        background-color: $overlay-color;
+        color: $red;
     }
-}
-}
-}
+    &:disabled{
+        background-color: $gray-white;
+        color: #000;
+        cursor: not-allowed;
+        border: solid 1px #000;
+    }
 }
