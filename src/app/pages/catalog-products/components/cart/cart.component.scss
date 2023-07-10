@@ -18,7 +18,7 @@ button {
     position: relative;
     background-color: $overlay-color;
     height: 15rem;
-    z-index: 2;
+    z-index: 99;
     overflow: auto;
     box-shadow: 4px 8px 20px #000;
 .elementCart{
@@ -43,7 +43,7 @@ button {
 .containerEventButtons{
     position: absolute;
     right: 0;
-    z-index: 2;
+    z-index: 99;
     top: 18rem;
     background-color: #fff;
     width: 24rem;

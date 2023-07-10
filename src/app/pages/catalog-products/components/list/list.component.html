@@ -1,9 +1,11 @@
 
 
+<app-modal [product]="productModal" />
+
 <section class="containerList">
     <div *ngFor="let product of products" 
         class="itemProduct">
-        <img [src]="product.images[0]">
+        <img [src]="product.images[0]" (click)="showModalMethod(product)">
         <div class="tooltip">Ver detalle de producto</div>
         <div class="containerDescription">
             <h4>{{ product.title }}</h4>

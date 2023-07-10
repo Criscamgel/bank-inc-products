@@ -16,13 +16,15 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { environment } from 'src/environments/environments.prod';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { DownloadFileService } from './services/download.service';
 @NgModule({
   declarations: [
     AppComponent,
     CatalogProductsComponent,
     FooterComponent,
     HeaderComponent,
-    LoadingComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,13 +32,17 @@ import { LoadingComponent } from './shared/loading/loading.component';
     HttpClientModule,
     AppRoutingModule,
     CatalogProductsModule,
+    NgImageSliderModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     })
   ],
-  providers: [],
+  exports: [
+    NgImageSliderModule
+  ],
+  providers: [DownloadFileService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

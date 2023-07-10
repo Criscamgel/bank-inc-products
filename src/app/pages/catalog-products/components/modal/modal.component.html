@@ -1,0 +1,26 @@
+
+<div *ngIf="showModal">
+  <div
+  class="modal-background">
+</div>
+
+<div  class="modal">
+  <div class="modal-body">
+    <div class="contHeaderModal">
+      <i class="fa fa-times" aria-hidden="true" (click)="closeModal()"></i>
+    </div>
+
+    <div class="containerProductDetail">
+      <img [src]="product.images[0]" alt="">
+      <div class="containerDescription">
+        <h3>{{ product.title }}</h3>
+        <p><b>Precio: </b>{{ product.price }} c/u</p>
+        <br>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+
+        </div>
+    </div>
+  
+  </div>
