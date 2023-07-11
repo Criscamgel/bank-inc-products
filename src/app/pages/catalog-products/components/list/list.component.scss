@@ -8,106 +8,135 @@ button {
 
 .containerList{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    @include Asmall() {
-      grid-template-columns: 1fr;
+    grid-template-columns: 10% 80% 10%;
+    @include smallTablet() {
+      grid-template-columns: 30% 40% 30%;
     }
   
     @include smallTablet() {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 10% 80% 10%;
     }
   
     @include tabletLaptop() {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 10% 80% 10%;
     }
-    .itemProduct{
-      justify-self: center;
-      position: relative;
-      &:hover{
+    @include laptopDesktop() {
+      grid-template-columns: 10% 80% 10%;
+    }
+  
+    @include desktopFull() {
+      grid-template-columns: 10% 80% 10%;
+    }
+    .contentProducts{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @include Asmall() {
+        grid-template-columns: 1fr;
+      }
+    
+      @include smallTablet() {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @include tabletLaptop() {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include laptopDesktop() {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    
+      @include desktopFull() {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .itemProduct{
+        justify-self: center;
+        position: relative;
+        &:hover{
+          .tooltip{
+            display: flex;
+          }
+        }
+        img{
+          width: 15rem;
+          height: 15rem;
+          border-radius: 6px;
+          cursor: pointer;
+        }
         .tooltip{
-          display: flex;
-        }
-      }
-      img{
-        width: 15rem;
-        height: 15rem;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      .tooltip{
-          background: black;
-          padding: 5px 10px;
-          border-radius: 5px;
-          color: #fff;
-          text-transform: capitalize;    
-          position: absolute;
-          z-index: 1030;
-          font-size: 12px;
-          line-height: 1.4;
-          visibility: visible;
-          filter: alpha(opacity=0);
-          display: none;
-          white-space: pre-line;
-          word-break: break-all;
-          top: calc(63% - 25px);
-
-        &:after {
-          content: "";
-          position: absolute;
-          top: -5px;
-          right: 50%;
-          margin-top: -5px;
-          border-width: 5px;
-          border-style: solid;
-          border-color: transparent #000 transparent transparent;
-          transform: rotate(90deg) translateY(-50%);
-          }
-        }
-      .containerDescription {
-        width: 15rem;
-        text-align: center;
-        height: 4rem;
-      }
-      .dropdownAddToCart {
-        position: absolute;
-        background-color: $gray-black;
-        color: $overlay-color;
-        font-weight: 500;
-        display: grid;
-        grid-template-rows: repeat(2, 1fr);
-        width: 15rem;
-        padding: 1rem;
-        margin-top: -20px;
-        z-index: 1;
-        .controlsAddWidgetProduct{
-          display: grid;
-          grid-template-columns: 10% 80% 10%;
-          align-items: center;
-          justify-self: center;
-          width: 12rem;
-          p{
-            text-align: center;
-          }
-          .danger{
-            background-color: $red;
-            color: $overlay-color;
-            border-radius: 3px;
-            outline: none;
-            &:disabled{
-              background-color: $red-disabled;
-              cursor: not-allowed;
+            background: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            text-transform: capitalize;    
+            position: absolute;
+            z-index: 1030;
+            font-size: 12px;
+            line-height: 1.4;
+            visibility: visible;
+            filter: alpha(opacity=0);
+            display: none;
+            white-space: pre-line;
+            word-break: break-all;
+            top: calc(63% - 25px);
+  
+          &:after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: 50%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #000 transparent transparent;
+            transform: rotate(90deg) translateY(-50%);
             }
           }
-          .cleared{
-            background-color: $green;
-            color: $overlay-color;
-            border-radius: 3px;
-            outline: none;
-          }
+        .containerDescription {
+          width: 15rem;
+          text-align: center;
+          height: 4rem;
         }
-        .buttonAdd{
+        .dropdownAddToCart {
+          position: absolute;
+          background-color: $gray-black;
+          color: $overlay-color;
+          font-weight: 500;
           display: grid;
-          justify-items: center;
+          grid-template-rows: repeat(2, 1fr);
+          width: 15rem;
+          padding: 1rem;
+          margin-top: -20px;
+          z-index: 1;
+          .controlsAddWidgetProduct{
+            display: grid;
+            grid-template-columns: 10% 80% 10%;
+            align-items: center;
+            justify-self: center;
+            width: 12rem;
+            p{
+              text-align: center;
+            }
+            .danger{
+              background-color: $red;
+              color: $overlay-color;
+              border-radius: 3px;
+              outline: none;
+              &:disabled{
+                background-color: $red-disabled;
+                cursor: not-allowed;
+              }
+            }
+            .cleared{
+              background-color: $green;
+              color: $overlay-color;
+              border-radius: 3px;
+              outline: none;
+            }
+          }
+          .buttonAdd{
+            display: grid;
+            justify-items: center;
+          }
         }
       }
     }
@@ -199,6 +228,3 @@ button {
       }
     }
   }
-/* {
-  display: flex !important;
-} */

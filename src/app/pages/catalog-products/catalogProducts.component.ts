@@ -45,7 +45,7 @@ export class CatalogProductsComponent implements OnInit, OnDestroy {
     this.uiSubscription = this.store.select('ui').subscribe(ui => this.loading = ui.isLoading);
     setTimeout(() => {
       this.conformImageObject();
-    }, 1000);
+    }, 2000);
   }
   
   ngOnDestroy(): void {
