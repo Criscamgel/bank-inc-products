@@ -9,6 +9,17 @@ button {
 .containerList{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    @include Asmall() {
+      grid-template-columns: 1fr;
+    }
+  
+    @include smallTablet() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include tabletLaptop() {
+      grid-template-columns: repeat(3, 1fr);
+    }
     .itemProduct{
       justify-self: center;
       position: relative;

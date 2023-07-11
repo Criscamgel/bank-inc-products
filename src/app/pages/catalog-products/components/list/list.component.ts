@@ -87,7 +87,8 @@ export class ListComponent implements OnInit, OnDestroy {
     let { id, title, price, quantity, images, description } = product;
     let localCartProduct = {id, title, price, quantity, images, description};
     if(this.cartProducts.length && this.cartProducts.find(x => x.id === product.id)){
-      return this.showInfo('Producto agregado anteriormente, no se puede agregar al carrito', '', 2000);      
+      this.appearProductWidget(product, false);     
+      return this.showInfo('Producto agregado anteriormente, no se puede agregar al carrito', '', 2000);
     }
     this.cartProducts = [...this.cartProducts, localCartProduct];
     this.store.dispatch(cartActions.setCartProducts({cartProducts:this.cartProducts}));

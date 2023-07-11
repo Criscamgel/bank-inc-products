@@ -1,7 +1,7 @@
 
 <div class="gridContainerCart" *ngIf="showCart">
     <div class="superContainerCart">
-        <div class="containerCart">
+        <div class="containerCart" *ngIf="cartProducts?.length; else containerCartEmpty">
                 <div class="elementCart" *ngFor="let cartProduct of cartProducts">
                     <div class="description">
                         <p><b>Nombre: </b>{{ cartProduct.title }}</p>
@@ -13,10 +13,18 @@
                         <button class="buttonEventCart" (click)="eraseCartProduct(cartProduct)"> Eliminar del carrito </button>
                     </div>
                 </div>
-        </div>
+            </div>
+            <ng-template #containerCartEmpty>
+                <div class="containerCartEmpty">
+                    <div class="contentCartEmpty">
+                        <p>Carrito de compras vacío</p>
+                        <i class="fa fa-frown-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </ng-template>
     </div>
     <div class="containerEventButtons">
-        <button class="buttonEventCart"> Convertir a SCV </button>
+        <button class="buttonEventCart" (click)="downloadFile()" > Convertir a SCV </button>
         <button class="buttonEventCart" (click)="hideCart()"> Salir del carrito </button>
     </div>
 </div>

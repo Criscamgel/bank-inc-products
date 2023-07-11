@@ -6,6 +6,7 @@ import { AppState } from 'src/app/app.reducer';
 import { ICartProduct } from 'src/app/interfaces/cart.interfaces';
 import * as ui from '../../../../shared/ui.actions';
 import * as cartActions from '../../../../pages/catalog-products/components/cart/cart.actions';
+import { DownloadFileService } from 'src/app/services/download.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,11 +19,20 @@ export class CartComponent implements OnInit, OnDestroy  {
   cartProducts: ICartProduct[];
   showCartSubscription: Subscription;
   showCart: Boolean;
+  fields = ["id", "title", "price", "quantity", "description", "images"];
 
-  constructor(private store: Store<AppState>, private toastr: ToastrService){}
+  constructor(
+      private store: Store<AppState>, 
+      private toastr: ToastrService,
+      public downloadService:DownloadFileService
+      ){}
 
-  showToast(message: string, title: string) {
+  showToastSuccess(message: string, title: string) {
     this.toastr.success(message, title, {timeOut: 1500});
+  }
+
+  showToastInfo(message: string, title: string) {
+    this.toastr.info(message, title, {timeOut: 1500});
   }
 
   eraseCartProduct(cartProduct:ICartProduct){
@@ -30,11 +40,21 @@ export class CartComponent implements OnInit, OnDestroy  {
       return x.id === cartProduct.id;
     }), 1);
     this.store.dispatch(cartActions.setCartProducts({cartProducts:this.cartProducts}));
-    this.showToast(`El producto ${cartProduct.title} fue eliminado correctamente`, '')
+    this.showToastSuccess(`El producto ${cartProduct.title} fue eliminado correctamente`, '');
   }
 
   hideCart(){
     this.store.dispatch(ui.closeCart());
+  }
+
+  downloadFile(){
+    if(this.cartProducts?.length){
+      let cartsLocal = [];
+      cartsLocal = [...this.cartProducts];
+      return this.downloadService.downloadFile(cartsLocal)
+    }else{
+      this.showToastInfo(`El carrito esta vacío, no hay registros que descargar`, '');
+    }
   }
 
   ngOnInit(): void {

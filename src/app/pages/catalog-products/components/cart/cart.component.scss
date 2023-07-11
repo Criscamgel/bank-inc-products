@@ -14,6 +14,13 @@ button {
     right: 0;
     height: 15rem;
     width: 26rem;
+    @include Asmall() {
+        width: 24rem;
+      }
+    
+      @include smallTablet() {
+        width: 24rem;
+      }
 .containerCart{
     position: relative;
     background-color: $overlay-color;
@@ -38,6 +45,30 @@ button {
         justify-self: center;
     }
 }
+}
+.containerCartEmpty{
+    position: relative;
+    background-color: $overlay-color;
+    height: 15rem;
+    z-index: 99;
+    overflow: auto;
+    box-shadow: 4px 8px 20px #000;
+    display: grid;
+    .contentCartEmpty{
+        display: grid;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        grid-template-rows: 1fr 1fr;
+        color: $gray-white;
+        p{
+            font-weight: 800;
+            font-style: italic;
+        }
+        i{
+            font-size: 2rem;
+        }
+    }
 }
 }
 .containerEventButtons{

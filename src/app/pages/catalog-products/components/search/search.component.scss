@@ -1,15 +1,30 @@
 @import "../../../../../scss/variables";
+@import "../../../../../scss/mixins";
 
 .containerSearch {
     display: grid;
-    grid-template-columns: 1rem 20rem;
+    grid-template-columns: 20% 60% 20%;
     padding: 2rem;
     justify-content: center;
     align-items: center;
     grid-gap: 10px;
+      @include Asmall() {
+        grid-template-columns: 10% 80% 10%;
+      }
+    
+      @include smallTablet() {
+        grid-template-columns: 10% 80% 10%;
+      }
+    
+      @include tabletLaptop() {
+        grid-template-columns: 20% 60% 20%;
+      }
     input{
         height: 2rem;
         border-radius: 5px;
+    }
+    i{
+        text-align: right;
     }
 }
 
